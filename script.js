@@ -47,13 +47,75 @@ const data= {
                             title:"Dynamic Environments",
                             body:"Customize your arsenal with a range of weapons and power-ups, including flamethrowers, rocket launchers, and more.",
 
+                        },
+                        {
+                            
+                            
+                                type:"card",
+                                //card properties down here
+                                ser:"images/Inferno/Inferno-3-short.png",
+                                altText:"Upgradable Weapons",
+                                title:"Epic Boss Battles",
+                                body:"Face off against towering demon bosses, each with their own unique strengths and weaknesses.",
+    
+                            
                         }
                     ],
-                }   
+                }, 
+                {
+                    type:"requirements",
+                    platforms:[
+                        "steam",
+                        "playstation",
+                        "xbox",
+                        "facebook",
+                        "twitter",
+                        "instagram",
+                        "patreon",
+                        "twitch",
+                        "youtube",
+                    ],
+                    requirements:[
+                        {
+                            type:"minimum-requirements",
+                            title:"Minimum Requirements",
+                            requirements:[
+                                {title:"OS", value:"Win7"},
+                                {title:"Processor",value:"Intel I3 or Ryzen 3"},
+                                {title:"RAM",value:"8gb"},
+                                {title:"Graphics",value:"Geforce GTX 570"},
+                                {title:"Storage",value:"1gb HDD"}
+                            ]
+                        },
+                        {
+                            type:"Recomended-requirements",
+                            title:"Recomended Requirements",
+                            requirements:[
+                                {title:"OS", value:"Win11"},
+                                {title:"Processor",value:"Intel I9 or Ryzen 7"},
+                                {title:"RAM",value:"16gb"},
+                                {title:"Graphics",value:"Geforce RTX 2080"},
+                                {title:"Storage",value:"5gb SSD"}
+                            ]
+                        }
+                    ],  
+                },
+                {
+                    type:"wishlist"
+                },
+                {
+                    type:"faq",
+                    questions:[
+                        {question:"what does this do?", answer:"stuff"},
+                        {question:"what does that do?", answer:"that stuff"},
+                        {question:"what does any of this do?", answer:"stuff I think"}
+                    ]
+                }
             ],
         }
             
-        ] 
+        ], 
 }
-console.log(data.pages[1].blocks[2].cards[1].body);
+const jason=JASON.stringify(data);
+console.log(JOSN.stringify(data));
  
