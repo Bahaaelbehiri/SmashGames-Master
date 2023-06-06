@@ -1,7 +1,7 @@
 //index.html Smash Games-Home
 //Blast.html Smash Games-Inferno Blast
 const data= {
-    brandName: "Smash Games",
+    brandName: "Smash Game",
     pages:[
             {
             names:"index",
@@ -116,6 +116,14 @@ const data= {
             
         ], 
 }
-const jason=JASON.stringify(data);
-console.log(JOSN.stringify(data));
- 
+
+
+let page = data.pages[1];
+
+document.title = data.brandName+ "-"+ data.pages[1].pageName;
+
+ // get access to the branding and change to data.brandingName;
+ document.getElementById("brand").innerHTML=data.brandName.toUpperCase();
+
+ // get access to the page title h1 and change to page.pageName 
+ document.getElementById("pageName").innerHTML=pageName;
