@@ -1,14 +1,14 @@
 //index.html Smash Games-Home
 //Blast.html Smash Games-Inferno Blast
-const data= {
-    brandName: "Smash Game",
+    const data= {
+    brandName: "Smash Games",
     pages:[
             {
             names:"index",
             pageName:"Home",
             callToAction:{
             ser:"images/SmashGamesLogo-short.png",
-            altText:"Smash Games Logo",
+            altText:"Smash Games Logo"
             }
         },
             {
@@ -39,7 +39,6 @@ const data= {
                             body:"Navigate through a variety of fiery landscapes, including lava pits, crumbling ruins, and demonic strongholds.",
                         },
                         {
-                            
                             type:"card",
                             //card properties down here
                             ser:"images/Inferno/Inferno-1-short.png",
@@ -49,16 +48,12 @@ const data= {
 
                         },
                         {
-                            
-                            
                                 type:"card",
                                 //card properties down here
                                 ser:"images/Inferno/Inferno-3-short.png",
                                 altText:"Upgradable Weapons",
                                 title:"Epic Boss Battles",
                                 body:"Face off against towering demon bosses, each with their own unique strengths and weaknesses.",
-    
-                            
                         }
                     ],
                 }, 
@@ -118,12 +113,82 @@ const data= {
 }
 
 
-let page = data.pages[1];
+            let page = data.pages[1];
+// get the main container
+            let container = document.getElementById("main");
+            document.title = data.brandName+ " - " + page.pageName; 
 
-document.title = data.brandName+ "-"+ data.pages[1].pageName;
+ // get access to the branding and change to data.brandName
+ document.getElementById("brand").innerHTML = data.brandName.toUpperCase();
 
- // get access to the branding and change to data.brandingName;
- document.getElementById("brand").innerHTML=data.brandName.toUpperCase();
+ // get access to the page title h1 and change it to page.pageName 
+            document.getElementById("pageName").innerHTML=pageName;
 
- // get access to the page title h1 and change to page.pageName 
- document.getElementById("pageName").innerHTML=pageName;
+ // This the code to create blocks
+
+/*<div class="call-to-action">
+        <img src="images/Inferno-Jumbotron.png" alt="Inferno Blast Gameplay" />
+        <br />
+        <a class="btn" href="https://steampowered.com" target="_blank">Buy Now on Steam! <i class="fa-brands fa-steam-symbol"></i></a>
+    </div>*/
+            createCallToAction(page.blocks[0]);
+            createPage(page.blocks);
+            createDescription(page.blocks[1]);
+
+            function createPage(blocks){
+            for (let i=0; i<blocks.length;i++){
+            let currentBlock = blocks[i];
+            if (currentBlock.type == "call-to-action") {
+                createCallToAction(currentBlock);
+            } else if (currentBlock.type == "description") {
+                createDescription(currentBlock);
+            } else {
+                console.log("no block template found");
+            }
+        }
+    }
+    function createImage(imgData) {
+        let img = document.createElement("img");
+        img.src = imgData.src;
+        img.alt = imgData.alt;
+        return img;
+    }
+    function createButtonLink(linkData) {
+        let link = document.createElement("a");
+        link.classList.add("btn");
+        link.href = linkData.buttonLinkSrc;
+        link.target = "_blank";
+        link.innerHTML = linkData.buttonLinkText + ' <i class="fa-brands fa-steam-symbol"></i>';
+        return link;
+    }
+        function createCallToAction(blockData){
+// get the main container
+    let container = document.getElementById("main");
+ 
+ // create our block
+        let block = document.createElement("div");
+        block.classList.add("call-to-action");
+//   add our img
+            block.appendChild(createImage(blockData));
+            block.appendChild(createButtonLink(blockData));
+//   add our break
+            block.appendChild(document.createElement("br"));
+// add our call to action button
+            block.appendChild(createButtonLink(blockData));
+ // add our block to main
+            container.appendChild(block); 
+            function createDescription(blockData) {
+// create our block
+            let block = document.createElement("div");
+            block.classList.add("description", "block", "accent-color");
+// add some text here
+    let description = document.createElement("p");
+    description.classList.add("description-text");
+    description.innerText = blockData.text;
+    block.appendChild(description);
+    // add our block to main
+    container.appendChild(block);
+ 
+}
+
+}
